@@ -1,17 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase";
 
-export default function LoginPage() {
-  const router = useRouter();
-
+export default function SignupPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  async function signIn() {
-    const { error } = await supabase.auth.signInWithPassword({
+  async function signUp() {
+    const { error } = await supabase.auth.signUp({
       email,
       password,
     });
@@ -21,7 +18,7 @@ export default function LoginPage() {
       return;
     }
 
-    router.push("/dashboard");
+    alert("Account created successfully!");
   }
 
   return (
@@ -30,7 +27,7 @@ export default function LoginPage() {
       <div className="w-full max-w-md rounded-3xl border border-white/10 bg-white/5 p-8">
 
         <h1 className="mb-8 text-center text-4xl font-bold">
-          Login
+          Create Account
         </h1>
 
         <div className="space-y-4">
@@ -52,10 +49,10 @@ export default function LoginPage() {
           />
 
           <button
-            onClick={signIn}
+            onClick={signUp}
             className="w-full rounded-xl bg-purple-600 p-3 font-semibold"
           >
-            Sign In
+            Sign Up
           </button>
 
         </div>

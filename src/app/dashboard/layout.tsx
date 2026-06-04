@@ -3,6 +3,8 @@
 import Link from "next/link";
 
 import { usePathname } from "next/navigation";
+import AuthGuard from "@/components/AuthGuard";
+import { supabase } from "@/lib/supabase";
 
 import {
   Home,
@@ -13,6 +15,10 @@ import {
   Bell,
   Search,
 } from "lucide-react";
+async function logout() {
+  await supabase.auth.signOut();
+  window.location.href = "/login";
+}
 
 export default function DashboardLayout({
   children,
@@ -23,6 +29,7 @@ export default function DashboardLayout({
   const pathname = usePathname();
 
   return (
+  <AuthGuard>
     <main className="flex min-h-screen bg-black text-white">
 
       {/* Sidebar */}
@@ -127,9 +134,12 @@ export default function DashboardLayout({
               <Bell size={18} />
             </button>
 
-            <div className="flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-r from-purple-500 to-blue-500 font-bold">
-              A
-            </div>
+            <button
+  onClick={logout}
+  className="rounded-xl bg-red-500 px-4 py-2 text-sm font-medium"
+>
+  Logout
+</button>
 
           </div>
 
@@ -143,5 +153,6 @@ export default function DashboardLayout({
       </div>
 
     </main>
+  </AuthGuard>
   );
 }
