@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { supabase } from "@/lib/supabase";
+import { toast } from "sonner";
 
 type Task = {
   id: number;
@@ -45,7 +46,7 @@ export default function TasksPage() {
       ]);
 
     if (error) {
-      console.error(error);
+      toast.error("Failed to create task");
       return;
     }
 

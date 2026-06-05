@@ -1,5 +1,6 @@
 import "./globals.css";
 import ThemeProvider from "@/components/ThemeProvider";
+import { Toaster } from "sonner";
 
 export const metadata = {
   title: "FlowSync",
@@ -14,6 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body>
+        <Toaster richColors position="top-right" />
         <ThemeProvider>
           {children}
         </ThemeProvider>

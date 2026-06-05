@@ -1,7 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
+
 import { useRouter } from "next/navigation";
+
 import { supabase } from "@/lib/supabase";
 
 export default function AuthGuard({
@@ -9,11 +11,16 @@ export default function AuthGuard({
 }: {
   children: React.ReactNode;
 }) {
+
   const router = useRouter();
-  const [loading, setLoading] = useState(true);
+
+  const [loading, setLoading] =
+    useState(true);
 
   useEffect(() => {
+
     async function checkUser() {
+
       const {
         data: { session },
       } = await supabase.auth.getSession();
@@ -27,11 +34,12 @@ export default function AuthGuard({
     }
 
     checkUser();
+
   }, [router]);
 
   if (loading) {
     return (
-      <div className="flex min-h-screen items-center justify-center">
+      <div className="flex min-h-screen items-center justify-center bg-black text-white">
         Loading...
       </div>
     );
