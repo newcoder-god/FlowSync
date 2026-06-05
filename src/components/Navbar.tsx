@@ -7,59 +7,47 @@ import ThemeToggle from "./ThemeToggle";
 export default function Navbar() {
 
   return (
-    <header className="fixed left-0 top-0 z-50 w-full border-b border-white/10 bg-black/40 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-[var(--border)] bg-[var(--background)]/80 backdrop-blur-xl">
 
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
 
-        {/* Logo */}
         <Link
           href="/"
-          className="text-3xl font-bold transition hover:opacity-80"
+          className="text-3xl font-bold"
         >
           FlowSync
         </Link>
 
-        {/* Navigation */}
         <nav className="hidden items-center gap-10 md:flex">
 
-          <a
-            href="#features"
-            className="text-sm text-gray-300 transition hover:text-white"
-          >
+          <a href="#features">
             Features
           </a>
 
-          <a
-            href="#pricing"
-            className="text-sm text-gray-300 transition hover:text-white"
-          >
+          <a href="#pricing">
             Pricing
           </a>
 
-          <a
-            href="#faq"
-            className="text-sm text-gray-300 transition hover:text-white"
-          >
+          <a href="#faq">
             FAQ
           </a>
 
         </nav>
 
-        {/* Right Side */}
         <div className="flex items-center gap-4">
 
           <ThemeToggle />
 
           <Link
             href="/login"
-            className="text-sm font-medium text-gray-300 transition hover:text-white"
+            className="text-sm font-medium"
           >
             Login
           </Link>
 
           <Link
             href="/signup"
-            className="rounded-full bg-gradient-to-r from-purple-500 to-blue-500 px-5 py-2 text-sm font-semibold text-white transition hover:opacity-90 active:scale-[0.98]"
+            className="rounded-full bg-gradient-to-r from-purple-500 to-cyan-500 px-5 py-2 text-sm font-medium text-white"
           >
             Get Started
           </Link>
