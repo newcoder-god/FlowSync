@@ -8,12 +8,14 @@ import Pricing from "@/components/Pricing";
 
 import FAQ from "@/components/FAQ";
 
-import Footer from "@/components/Footer";
+import BackgroundGlow from "@/components/BackgroundGlow";
 
 export default function HomePage() {
 
   return (
-    <main className="min-h-screen bg-black text-white">
+    <main className="min-h-screen bg-(--background) text-(--foreground) transition-colors duration-300 overflow-hidden">
+
+      <BackgroundGlow />
 
       <Navbar />
 
@@ -24,8 +26,6 @@ export default function HomePage() {
       <Pricing />
 
       <FAQ />
-
-      <Footer />
 
     </main>
   );

@@ -17,7 +17,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "FlowSync",
   description:
-    "Modern AI SaaS Platform",
+    "Modern AI-powered workflow SaaS platform built with Next.js and Supabase.",
 };
 
 export default function RootLayout({
@@ -32,7 +32,9 @@ export default function RootLayout({
       suppressHydrationWarning
     >
 
-      <body className={inter.className}>
+      <body
+        className={`${inter.className} bg-[var(--background)] text-[var(--foreground)] transition-colors duration-300`}
+      >
 
         <ThemeProvider
           attribute="class"
