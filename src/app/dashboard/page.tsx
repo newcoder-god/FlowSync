@@ -103,7 +103,7 @@ export default function TasksPage() {
       <div className="grid gap-6 lg:grid-cols-3">
 
         {/* TODO */}
-        <div className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl">
+        <div className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl transition hover:border-purple-500/30 hover:bg-white/[0.07] p-6 backdrop-blur-xl">
           <div className="mb-6 flex items-center justify-between">
             <h2 className="text-2xl font-bold">
               To Do
@@ -130,7 +130,7 @@ export default function TasksPage() {
         </div>
 
         {/* IN PROGRESS */}
-        <div className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl">
+        <div className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl transition hover:border-purple-500/30 hover:bg-white/[0.07] p-6 backdrop-blur-xl">
           <div className="mb-6 flex items-center justify-between">
             <h2 className="text-2xl font-bold">
               In Progress
@@ -157,7 +157,7 @@ export default function TasksPage() {
         </div>
 
         {/* COMPLETED */}
-        <div className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl">
+        <div className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl transition hover:border-purple-500/30 hover:bg-white/[0.07] p-6 backdrop-blur-xl">
           <div className="mb-6 flex items-center justify-between">
             <h2 className="text-2xl font-bold">
               Completed

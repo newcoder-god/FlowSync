@@ -32,7 +32,7 @@ export default function Testimonials() {
         <div className="mt-20 grid gap-8 md:grid-cols-3">
 
           {/* Card 1 */}
-          <div className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl">
+          <div className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl transition hover:border-purple-500/30 hover:bg-white/[0.07] p-8 backdrop-blur-xl">
 
             <p className="text-gray-300">
               “FlowSync completely transformed the way our
@@ -61,7 +61,7 @@ export default function Testimonials() {
           </div>
 
           {/* Card 2 */}
-          <div className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl">
+          <div className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl transition hover:border-purple-500/30 hover:bg-white/[0.07] p-8 backdrop-blur-xl">
 
             <p className="text-gray-300">
               “The AI automation tools saved us countless
@@ -90,7 +90,7 @@ export default function Testimonials() {
           </div>
 
           {/* Card 3 */}
-          <div className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl">
+          <div className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl transition hover:border-purple-500/30 hover:bg-white/[0.07] p-8 backdrop-blur-xl">
 
             <p className="text-gray-300">
               “FlowSync gives our company enterprise-level

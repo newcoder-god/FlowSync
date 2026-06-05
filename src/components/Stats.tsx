@@ -13,7 +13,7 @@ export default function Stats() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="grid gap-8 rounded-3xl border border-white/10 bg-white/5 p-10 backdrop-blur-xl md:grid-cols-4"
+          className="grid gap-8 rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl transition hover:border-purple-500/30 hover:bg-white/[0.07] p-10 backdrop-blur-xl md:grid-cols-4"
         >
 
           {/* Stat 1 */}

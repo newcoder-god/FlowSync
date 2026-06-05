@@ -41,7 +41,7 @@ export default function SignupPage() {
   return (
     <main className="flex min-h-screen items-center justify-center bg-black px-6 text-white">
 
-      <div className="w-full max-w-md rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl">
+      <div className="w-full max-w-md rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl transition hover:border-purple-500/30 hover:bg-white/[0.07] p-8 backdrop-blur-xl">
 
         <h1 className="mb-8 text-center text-4xl font-bold">
           Create Account

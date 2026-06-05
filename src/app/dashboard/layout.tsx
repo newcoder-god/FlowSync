@@ -11,15 +11,21 @@ import {
   BarChart3,
   CheckSquare,
   Sparkles,
-  Bell,
   Search,
   Menu,
   X,
+  Settings,
 } from "lucide-react";
 
 import AuthGuard from "@/components/AuthGuard";
 
+import Notifications from "@/components/Notifications";
+
+import PageTransition from "@/components/PageTransition";
+
 import { supabase } from "@/lib/supabase";
+
+import { useSearch } from "@/context/SearchContext";
 
 export default function DashboardLayout({
   children,
@@ -31,6 +37,9 @@ export default function DashboardLayout({
 
   const [sidebarOpen, setSidebarOpen] =
     useState(false);
+
+  const { search, setSearch } =
+    useSearch();
 
   async function logout() {
 
@@ -60,6 +69,11 @@ export default function DashboardLayout({
       label: "AI Assistant",
       icon: Sparkles,
     },
+    {
+      href: "/dashboard/settings",
+      label: "Settings",
+      icon: Settings,
+    },
   ];
 
   return (
@@ -86,7 +100,7 @@ export default function DashboardLayout({
           }`}
         >
 
-          {/* Top */}
+          {/* Logo */}
           <div className="flex items-center justify-between">
 
             <Link
@@ -96,7 +110,6 @@ export default function DashboardLayout({
               FlowSync
             </Link>
 
-            {/* Close Mobile */}
             <button
               aria-label="Close sidebar"
               onClick={() =>
@@ -126,10 +139,10 @@ export default function DashboardLayout({
                   onClick={() =>
                     setSidebarOpen(false)
                   }
-                  className={`flex items-center gap-3 rounded-2xl px-4 py-3 transition focus:outline-none focus:ring-2 focus:ring-purple-500 ${
+                  className={`flex items-center gap-3 rounded-2xl border border-transparent px-4 py-3 transition hover:border-purple-500/30 hover:bg-white/[0.07] focus:outline-none focus:ring-2 focus:ring-purple-500 ${
                     pathname === item.href
                       ? "bg-purple-500/20 text-white"
-                      : "text-gray-400 hover:bg-white/5 hover:text-white"
+                      : "text-gray-400 hover:text-white"
                   }`}
                 >
 
@@ -166,7 +179,7 @@ export default function DashboardLayout({
               </button>
 
               {/* Search */}
-              <div className="hidden w-full max-w-md items-center gap-3 rounded-2xl border border-white/10 bg-black/40 px-4 py-3 md:flex">
+              <div className="hidden w-full max-w-md items-center gap-3 rounded-2xl border border-white/10 bg-black/40 px-4 py-3 transition hover:border-purple-500/30 md:flex">
 
                 <Search
                   size={18}
@@ -176,7 +189,13 @@ export default function DashboardLayout({
                 <input
                   aria-label="Search"
                   type="text"
-                  placeholder="Search..."
+                  value={search}
+                  onChange={(e) =>
+                    setSearch(
+                      e.target.value
+                    )
+                  }
+                  placeholder="Search tasks..."
                   className="w-full bg-transparent outline-none"
                 />
 
@@ -187,18 +206,11 @@ export default function DashboardLayout({
             {/* Right */}
             <div className="flex items-center gap-4">
 
-              {/* Notifications */}
-              <button
-                aria-label="Notifications"
-                className="rounded-full border border-white/10 bg-white/5 p-3 transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-purple-500"
-              >
-                <Bell size={18} />
-              </button>
+              <Notifications />
 
-              {/* Logout */}
               <button
                 onClick={logout}
-                className="rounded-xl bg-red-500 px-4 py-2 text-sm font-medium transition hover:bg-red-400 focus:outline-none focus:ring-2 focus:ring-red-400"
+                className="rounded-xl bg-red-500 px-4 py-2 text-sm font-medium transition hover:bg-red-400 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-red-400"
               >
                 Logout
               </button>
@@ -209,7 +221,11 @@ export default function DashboardLayout({
 
           {/* Content */}
           <div className="flex-1 p-4 lg:p-6">
-            {children}
+
+            <PageTransition>
+              {children}
+            </PageTransition>
+
           </div>
 
         </div>

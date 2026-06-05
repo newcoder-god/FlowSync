@@ -1,10 +1,23 @@
+import type { Metadata } from "next";
+
 import "./globals.css";
-import ThemeProvider from "@/components/ThemeProvider";
+
+import { Inter } from "next/font/google";
+
+import { ThemeProvider } from "next-themes";
+
 import { Toaster } from "sonner";
 
-export const metadata = {
+import { SearchProvider } from "@/context/SearchContext";
+
+const inter = Inter({
+  subsets: ["latin"],
+});
+
+export const metadata: Metadata = {
   title: "FlowSync",
-  description: "AI SaaS Landing Page",
+  description:
+    "Modern AI SaaS Platform",
 };
 
 export default function RootLayout({
@@ -12,14 +25,36 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body>
-        <Toaster richColors position="top-right" />
-        <ThemeProvider>
-          {children}
+    <html
+      lang="en"
+      suppressHydrationWarning
+    >
+
+      <body className={inter.className}>
+
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+        >
+
+          <SearchProvider>
+
+            <Toaster
+              richColors
+              position="top-right"
+            />
+
+            {children}
+
+          </SearchProvider>
+
         </ThemeProvider>
+
       </body>
+
     </html>
   );
 }
